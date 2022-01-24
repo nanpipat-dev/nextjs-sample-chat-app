@@ -40,7 +40,7 @@ function Chats(): JSX.Element {
                 <div className="background">
                     <div className="shadow">
                         <ChatEngine
-                        height="calc(100vh - 500px)"
+                        height="calc(100vh - 200px)"
                             publicKey='c85cc042-0adc-42a7-babd-b362ccb622e3'
                             userName={username}
                             userSecret={secret}
