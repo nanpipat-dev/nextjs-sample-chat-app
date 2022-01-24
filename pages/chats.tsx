@@ -6,15 +6,7 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic';
 import { useGlobal } from '../context';
 import { useEffect, useState } from 'react';
-import { ChatEngine,MessageFormSocial } from 'react-chat-engine'
-
-// const ChatEngine = dynamic<Function>(() =>
-//     import("react-chat-engine").then((module) => module.ChatEngine)
-// );
-
-// const MessageFormSocial = dynamic<Function>(() =>
-//     import("react-chat-engine").then((module) => module.MessageFormSocial)
-// )
+import { ChatEngine, MessageFormSocial } from 'react-chat-engine'
 
 function Chats(): JSX.Element {
     const { username, secret } = useGlobal()
@@ -28,7 +20,7 @@ function Chats(): JSX.Element {
     })
 
     useEffect(() => {
-        if(username.length === 0) router.push('/')
+        if (username.length === 0) router.push('/')
     })
 
     return (
@@ -40,14 +32,15 @@ function Chats(): JSX.Element {
                 <div className="background">
                     <div className="shadow">
                         <ChatEngine
-                        height="calc(100vh - 200px)"
+                            height="calc(100vh - 200px)"
                             publicKey='c85cc042-0adc-42a7-babd-b362ccb622e3'
                             userName={username}
                             userSecret={secret}
-                            renderNewMessageForm={() => <MessageFormSocial/>}
+                            renderNewMessageForm={() => <MessageFormSocial />}
                         />
                     </div>
-                </div>}
+                </div>
+            }
         </>
     )
 }
