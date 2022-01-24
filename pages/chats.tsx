@@ -6,14 +6,15 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic';
 import { useGlobal } from '../context';
 import { useEffect, useState } from 'react';
+import { ChatEngine,MessageFormSocial } from 'react-chat-engine'
 
-const ChatEngine = dynamic(() =>
-    import("react-chat-engine").then((module) => module.ChatEngine)
-);
+// const ChatEngine = dynamic<Function>(() =>
+//     import("react-chat-engine").then((module) => module.ChatEngine)
+// );
 
-const MessageFormSocial = dynamic(() =>
-    import("react-chat-engine").then((module) => module.MessageFormSocial)
-)
+// const MessageFormSocial = dynamic<Function>(() =>
+//     import("react-chat-engine").then((module) => module.MessageFormSocial)
+// )
 
 function Chats(): JSX.Element {
     const { username, secret } = useGlobal()
@@ -39,8 +40,8 @@ function Chats(): JSX.Element {
                 <div className="background">
                     <div className="shadow">
                         <ChatEngine
-                            height='calc(100vh - 500px)'
-                            projectID='c85cc042-0adc-42a7-babd-b362ccb622e3'
+                        height="calc(100vh - 500px)"
+                            publicKey='c85cc042-0adc-42a7-babd-b362ccb622e3'
                             userName={username}
                             userSecret={secret}
                             renderNewMessageForm={() => <MessageFormSocial/>}
