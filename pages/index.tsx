@@ -18,6 +18,11 @@ const Auth = () => {
 
     if (username.length === 0) return
 
+    if(!validateEmail(username)) {
+      alert("invalid email")
+      return
+    }
+
     setSecret("123456top123456")
 
     console.log(username, secret, "asdasd")
@@ -32,6 +37,13 @@ const Auth = () => {
       .then(r => router.push('/chats'))
 
   }
+
+  const validateEmail = (email:string) =>{
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+  }
+
   return (
     <div className="background">
       <div className="auth-container">
